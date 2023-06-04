@@ -1,0 +1,9 @@
+-special role that enables user to add new dogs to rent
+-special role that has access to admin panel
+-user login logout
+-user edit profile
+-overview of available dogs
+-booking a dog for a specific date
+-option to rate a dog
+-integration with PayPal or some bank
+-email notifications
