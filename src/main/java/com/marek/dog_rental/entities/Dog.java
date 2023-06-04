@@ -6,21 +6,22 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Getter
 @NoArgsConstructor
+@Entity
+@Table(name = "dogs")
 public class Dog {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "name should not be null")
     private String name;
 
     @Min(value = 0, message = "invalid dog age")
     private int age;
 
-    @NotNull
+    @NotNull(message = "breed should not be null")
     @Enumerated(EnumType.STRING)
     private Breed breed;
 }
