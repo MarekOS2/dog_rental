@@ -2,13 +2,16 @@ package com.marek.dog_rental.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
 @NoArgsConstructor
-@Setter
 @Entity
 @Table(name = "users")
 public class User {
@@ -16,21 +19,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Getter
-    private String username;
+    private String name;
+    private String surname;
 
-    // password must contain min. 8 characters, 1 letter and 1 number
-    @NotNull
-    @Getter
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-            message = "password not valid")
+            message = "user password not valid")
     private String password;
 
-    @NotNull
-    @Getter
-    @Email(message = "email not valid")
+    @Email(regexp = ".+@.+\\..+", message = "user email not valid")
     private String email;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Dog> dogs = new ArrayList<>();
 
 }

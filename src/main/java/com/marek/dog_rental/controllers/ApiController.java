@@ -3,11 +3,11 @@ package com.marek.dog_rental.controllers;
 import com.marek.dog_rental.entities.User;
 import com.marek.dog_rental.services.UserService;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping("/api")
 public class ApiController {
 
@@ -21,4 +21,5 @@ public class ApiController {
     public String demo() {
         return "demo";
     }
+
 }

@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class WebController {
-    @GetMapping("/login")
-    String login(Model model) {
-        return "index";
+    @GetMapping("/register")
+    String register() {
+        return "register";
     }
 
 }
