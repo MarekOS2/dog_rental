@@ -17,9 +17,4 @@ public class ApiController {
             userService.saveUser(user);
     }
 
-    @GetMapping("/demo")
-    public String demo() {
-        return "demo";
-    }
-
 }
